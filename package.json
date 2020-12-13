@@ -1,0 +1,27 @@
+{
+  "name": "github-issues-rdns",
+  "version": "1.0.0",
+  "description": "This does a reverse DNS lookup of the IP in GitHub issue body and comments the result.",
+  "license": "MIT",
+  "scripts": {
+    "ci": "npm i && npm run lint",
+    "lint": "eslint ./src/**/*.ts",
+    "lint:fix": "eslint --fix ./src/**/*.ts"
+  },
+  "author": "linyows",
+  "repository": "https://github.com/linyows/github-issues-rdns",
+  "devDependencies": {
+    "@google/clasp": "^2.3.0",
+    "@types/google-apps-script": "^1.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "inquirer": "^6.0.0",
+    "prettier": "^2.0.5"
+  },
+  "tslintIgnore": [
+    "**/node_modules/**"
+  ]
+}
