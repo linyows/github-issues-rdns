@@ -27,7 +27,7 @@ export class GithubIssuesRdns {
     this.issues = {
       total_count: 0,
       incomplete_results: false,
-      items: []
+      items: [],
     }
     this.reversed = []
   }
@@ -47,14 +47,8 @@ export class GithubIssuesRdns {
   }
 
   public fetch(): void {
-     const query = [
-       'is:issue',
-       'is:open',
-       `label:${this.config.srcLabel}`,
-       `-label:${this.config.dstLabel}`,
-       `repo:${this.config.repo}`,
-     ]
-     this.issues = this.github.searchIssues(query.join('+'))
+    const query = ['is:issue', 'is:open', `label:${this.config.srcLabel}`, `-label:${this.config.dstLabel}`, `repo:${this.config.repo}`]
+    this.issues = this.github.searchIssues(query.join('+'))
   }
 
   public doRdns() {
@@ -71,17 +65,19 @@ export class GithubIssuesRdns {
         continue
       }
 
-      const ipsWithouts = ips.filter(v => !cidrRegex.test(v))
+      const ipsWithouts = ips
+        .filter(v => !cidrRegex.test(v))
         .filter(v => !privateIpRegex.test(v))
-        .filter((el, i, s) => { return s.indexOf(el) === i })
+        .filter((el, i, s) => {
+          return s.indexOf(el) === i
+        })
       for (const ip of ipsWithouts) {
         if (!ip) {
           continue
         }
         const result = GoogleDns.reverse(ip)
-        const names = (result === undefined || result.Answer === undefined) ?
-          ['name not found'] : result.Answer.map(v => v.data)
-        this.reversed.push({number: i.number, title: i.title, ip, names})
+        const names = result === undefined || result.Answer === undefined ? ['name not found'] : result.Answer.map(v => v.data)
+        this.reversed.push({ number: i.number, title: i.title, ip, names })
       }
     }
   }
