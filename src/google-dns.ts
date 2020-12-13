@@ -17,7 +17,7 @@ export class GoogleDns {
   public static reverse(ip: string): Resolve | undefined {
     const url = `https://dns.google.com/query?name=${ip}`
     const res = UrlFetchApp.fetch(url)
-    const regex = /([0-9\.]+).in-addr.arpa/
+    const regex = /([0-9.]+).in-addr.arpa/
     const name = res.getContentText().match(regex)
 
     if (name === null) {
