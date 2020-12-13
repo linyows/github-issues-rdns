@@ -51,7 +51,7 @@ export class GithubIssuesRdns {
     this.issues = this.github.searchIssues(query.join('+'))
   }
 
-  public doRdns() {
+  public doRdns(): void {
     const oct = '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
     const cidr = '(\\/(3[0-2]|[12][0-9]|[1-9]))'
     const ipRegex = new RegExp(`${oct}\\.${oct}\\.${oct}\\.${oct}${cidr}?`, 'g')
@@ -91,12 +91,12 @@ ${r.names.join('\n')}
 `
   }
 
-  public commentToIssue(r: Reversed) {
+  public commentToIssue(r: Reversed): void {
     const body = this.defaultTemplate(r)
     this.github.createIssueComment(this.config.repo, r.number, body)
   }
 
-  public addDstLabel(r: Reversed) {
+  public addDstLabel(r: Reversed): void {
     this.github.addLabelsToIssue(this.config.repo, r.number, [this.config.dstLabel])
   }
 }
