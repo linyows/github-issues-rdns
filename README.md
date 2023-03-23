@@ -3,7 +3,7 @@ GitHub Issues rDNS
 
 This does a reverse DNS lookup of the IP in GitHub issue body and comments the result on GAS.
 
-<a href="https://github.com/linyows/github-issues-rdns/actions" title="actions"><img src="https://img.shields.io/github/workflow/status/linyows/github-issues-rdns/Build?style=for-the-badge"></a>
+<a href="https://github.com/linyows/github-issues-rdns/actions" title="actions"><img src="https://img.shields.io/github/actions/workflow/status/linyows/github-issues-rdns/build.yml?branch=main&style=for-the-badge"></a>
 <a href="https://github.com/google/clasp" title="clasp"><img src="https://img.shields.io/badge/built%20with-clasp-4285f4.svg?style=for-the-badge"></a>
 <a href="https://github.com/linyows/github-issues-rdns/blob/master/LICENSE" title="MIT License"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge"></a>
 
